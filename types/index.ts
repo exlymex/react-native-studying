@@ -1,0 +1,1 @@
+export {IGoal} from './IGoal';

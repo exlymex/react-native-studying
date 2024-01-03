@@ -1,14 +1,13 @@
 import React, {FC, ReactElement, useState} from 'react';
-import {Button, Modal, TextInput, View, Image} from "react-native";
+import {Button, Image, Modal, TextInput, View} from "react-native";
 import {styles} from "./GoalInput.style";
-
 interface IProps {
     onAddGoal: (goalText: string) => void;
     visible: boolean;
     onCancel: () => void;
 }
 
-const GoalInput: FC<IProps> = ({onAddGoal, visible,onCancel}): ReactElement => {
+const GoalInput: FC<IProps> = ({onAddGoal, visible, onCancel}): ReactElement => {
     const [goalText, setGoalText] = useState('')
     const onGoalTextChange = (text: string) => {
         setGoalText(text)
@@ -20,7 +19,10 @@ const GoalInput: FC<IProps> = ({onAddGoal, visible,onCancel}): ReactElement => {
     return (
         <Modal visible={visible} animationType="slide">
             <View style={styles.inputContainer}>
-                <Image style={styles.image} source={require('../../assets/goal.png')} />
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/goal.png')}
+                />
                 <TextInput
                     value={goalText}
                     onChangeText={onGoalTextChange}
